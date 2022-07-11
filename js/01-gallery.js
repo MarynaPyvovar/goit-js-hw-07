@@ -1,6 +1,5 @@
 import { galleryItems } from './gallery-items.js';
 // Change code below this line
-// console.log(galleryItems);
 
 const gallery = document.querySelector('.gallery');
 
@@ -24,19 +23,24 @@ function createImagesMarkup(items) {
         .join('');
 };
 
-const link = document.querySelector('.gallery__link');
-const image = document.querySelector('.gallery__image');
-
 gallery.addEventListener('click', onGalleryClick);
 
 function onGalleryClick(event) {
     const isImage = event.target.classList.contains('gallery__image');
     if (!isImage) return;
 
-    link.preventDefault();
+    event.preventDefault();
 
-    
+    event.target.src = event.target.dataset.source;
 
+    const instance = basicLightbox.create(`
+    <div class="modal">
+        <img src = "${event.target.src}"/>
+    </div>`,{ onShow: (instance) => {
+        instance.element().querySelector('img').onclick = instance.close
+    }
+})
+
+    instance.show()
 }
 
-console.log(gallery);
