@@ -26,11 +26,8 @@ function onGalleryClick(event) {
 
     event.preventDefault();
 
-    var lightbox = new SimpleLightbox('.gallery a', {
-        captionAttribute: 'alt',
-        urlAttribute: 'href',
-        loadingTimeout: 250,
+    const lightbox = new SimpleLightbox('.gallery a', {
+        captionsData: 'alt',
+        captionDelay: 250,
     });
-
-    return lightbox
 }
