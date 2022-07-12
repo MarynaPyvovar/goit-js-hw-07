@@ -18,16 +18,7 @@ function createImagesMarkup(items) {
         .join('');
 };
 
-gallery.addEventListener('click', onGalleryClick);
-
-function onGalleryClick(event) {
-    const isImage = event.target.classList.contains('gallery__image');
-    if (!isImage) return;
-
-    event.preventDefault();
-
-    const lightbox = new SimpleLightbox('.gallery a', {
-        captionsData: 'alt',
-        captionDelay: 250,
-    });
-}
+const lightbox = new SimpleLightbox('.gallery a', {
+    captionsData: 'alt',
+    captionDelay: 250,
+})

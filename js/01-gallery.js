@@ -36,10 +36,7 @@ function onGalleryClick(event) {
     const instance = basicLightbox.create(`
     <div class="modal">
         <img src = "${event.target.src}"/>
-    </div>`,{ onShow: (instance) => {
-        instance.element().querySelector('img').onclick = instance.close
-    }
-})
+    </div>`)
 
     instance.show()
 }
